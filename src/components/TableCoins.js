@@ -8,7 +8,7 @@ const TableCoins = ({ coins, search }) => {
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  if (!coins) return <div>no coins</div>
+  if (!coins) return <div>No se encuentra</div>
 
   return (
     <table className="table table-dark mt-4 table-hover">

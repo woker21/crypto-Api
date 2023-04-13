@@ -1,7 +1,10 @@
-import "./App.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import TableCoins from "./components/TableCoins";
+
+
+
+
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -28,7 +31,7 @@ function App() {
       <div className="row">
         <input
           type="text"
-          placeholder="Search a Coin"
+          placeholder="Busca una Coin"
           className="form-control bg-dark text-light border-0 mt-4 text-center"
           autoFocus
           onChange={(e) => setSearch(e.target.value)}
