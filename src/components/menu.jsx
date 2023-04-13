@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import '../css/General.css'
 
 
 
@@ -7,13 +7,13 @@ import { NavLink } from "react-router-dom";
 const Menu = () => {
     return (
         <>
-        <nav className="menu">
+        <nav id="menu">
             <a className="logosteam" href="">
-            <i class="fa-brands fa-bitcoin">
-                </i><span>Cripto Api</span></a>
-            <ul>
-                <li><NavLink to='../inicio'>Home</NavLink></li>
-                <li><NavLink to='../servers'>Compras Coins</NavLink></li>
+            <i class="fa-sharp fa-solid fa-coins fa-beat-fade">
+                </i><span className="span">Cripto Api</span></a>
+            <ul className="ul">
+                <li className="li"><NavLink to='/'>Home</NavLink></li>
+                <li className="li"><NavLink to='./compra'>ComprasCoins</NavLink></li>
             </ul>
         </nav>
         </>

@@ -6,8 +6,8 @@ const Rutas = () => {
     return ( <>
             <Routes>
             <Route path='/' element={<InicioBTC />} />
-            <Route path='/inicio' element={<InicioBTC />}/>
-            <Route path='/servers' element={<Compra />}/>
+            <Route path='./inicio' element={<InicioBTC />}/>
+            <Route path='/compra' element={<Compra />}/>
         </Routes>
     </> );
 }

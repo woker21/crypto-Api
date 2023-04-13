@@ -4,8 +4,6 @@ import TableCoins from "./components/TableCoins";
 
 
 
-
-
 function App() {
   const [coins, setCoins] = useState([]);
   const [search, setSearch] = useState("");
