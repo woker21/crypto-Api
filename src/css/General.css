@@ -49,4 +49,30 @@
   color: #d2d2d2;
   text-decoration: none;
   font-weight: 700;
+}
+
+#card-principal {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
+  border-radius: 30px;
+}
+
+#card {
+  background: #212529;
+  position: fixed;
+  border-radius: 25px;
+  margin-top: 5px;
+}
+
+#tabla-price {
+  width: 55%;
+}
+
+#container {
+  display: flex;
+  width: 100%;
 }/*# sourceMappingURL=General.css.map */
