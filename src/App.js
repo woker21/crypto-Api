@@ -29,6 +29,7 @@ function App() {
 
 
 
+
  //carga el contenido de la api una vez que cargue todo
   useEffect(() => {
     getData();
