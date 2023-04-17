@@ -75,4 +75,24 @@
 #container {
   display: flex;
   width: 100%;
+}
+
+#containerApp {
+  width: 100%;
+}
+
+#btnComprar {
+  display: flex;
+  justify-content: center;
+  padding: 10px 15px;
+  background: #0078f2;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+#btnComprar a {
+  color: #d2d2d2;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }/*# sourceMappingURL=General.css.map */

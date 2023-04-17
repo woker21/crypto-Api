@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const CoinDetails = ({ coin }) => {
     if (!coin) return null;
@@ -52,7 +53,14 @@ const CoinDetails = ({ coin }) => {
                     <div className="card-text d-flex justify-content-between align-items-center">
                         <span className="text-muted">Suministro Total:</span>
                         <span className="">{coin.total_supply}</span>
+
+                        
                     </div>
+                        <div id="btnComprar">
+
+                        <NavLink to='./compra'>Comprar</NavLink>
+                        
+                        </div>
                 </div>
             </div>
         </div>

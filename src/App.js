@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div id="container" className="container">
-      <div className="d-flex p-2 flex-wrap flex-row-reverse">
+      <div id="containerApp" className="d-flex flex-wrap flex-row-reverse">
 
         {/*Buscador de coins */}
         <input
