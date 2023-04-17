@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 
+
 const Convertidor = () => {
   const [monedas, setMonedas] = useState([]);
   const [monedaSeleccionada, setMonedaSeleccionada] = useState("");
   const [cantidad, setCantidad] = useState(1);
   const [resultado, setResultado] = useState(0);
 
+//obtenemos los datos de la api y los efectos
   useEffect(() => {
     const obtenerMonedas = async () => {
       const response = await fetch(
@@ -18,23 +20,33 @@ const Convertidor = () => {
     obtenerMonedas();
   }, []);
 
-  const handleMonedaSeleccionada = (e) => {
+
+//guardamos el valor de la moneda seleccionada
+  const MonedaSeleccionada = (e) => {
     setMonedaSeleccionada(e.target.value);
   };
 
-  const handleCantidad = (e) => {
+
+//guardamos el valor de la cantidad a convertir
+  const Cantidad = (e) => {
     setCantidad(e.target.value);
   };
 
-  const handleConvertir = () => {
+
+//calculamos y convertimos las monedas
+  const Convertir = () => {
     const moneda = monedas.find((m) => m.id === monedaSeleccionada);
     const valorEnUSD = cantidad / moneda.current_price;
     setResultado(valorEnUSD);
   };
 
+
+
   return (
     <div className="container mt-4">
       <h1>Convertidor de moneda</h1>
+
+      {/*Seleccionamos la moneda a convertir y los estilos son con boostrap */}
       <div className="row mt-4">
         <div className="col-md-4">
           <label htmlFor="moneda">Seleccione una moneda:</label>
@@ -42,8 +54,9 @@ const Convertidor = () => {
             id="moneda"
             className="form-control"
             value={monedaSeleccionada}
-            onChange={handleMonedaSeleccionada}
+            onChange={MonedaSeleccionada}
           >
+            {/*hacemos map para seleccionar cada coin a convertir */}
             {monedas.map((moneda) => (
               <option key={moneda.id} value={moneda.id}>
                 {moneda.name} ({moneda.symbol.toUpperCase()})
@@ -51,6 +64,7 @@ const Convertidor = () => {
             ))}
           </select>
         </div>
+
         <div className="col-md-4">
           <label htmlFor="cantidad">Ingrese la cantidad:</label>
           <input
@@ -58,15 +72,19 @@ const Convertidor = () => {
             type="number"
             className="form-control"
             value={cantidad}
-            onChange={handleCantidad}
+            onChange={Cantidad}
           />
+
         </div>
         <div className="col-md-4">
-          <button className="btn btn-primary mt-4" onClick={handleConvertir}>
+          {/*Boton Convertir */}
+          <button className="btn btn-primary mt-4" onClick={Convertir}>
             Convertir
           </button>
         </div>
       </div>
+
+
       <div className="row mt-4">
         <div className="col-md-4">
           <h4>Precio actual de {monedaSeleccionada}:</h4>
