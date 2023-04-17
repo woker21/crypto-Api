@@ -26,12 +26,17 @@ const ComprarCoin = () => {
     OBtenerCoin();
   }, []);
 
+
+  //seleccionar coin
   const seleccionarCoin = (coin) => {
     setSelectedCoin(coin);
   };
 
-  const handleBuyCoin = () => {
+// funcion para manejar la compra de la coin
+  const manejarCompra = () => {
     if (selectedCoin) {
+
+      // enviamos al usuario a la pagina de binance con la coin que comprara
       window.open(
         `https://www.binance.com/es/buy-sell-crypto?channel=card&fiat=EUR&crypto=${selectedCoin.id}`,
         "_blank"
@@ -39,16 +44,20 @@ const ComprarCoin = () => {
     }
   };
 
+
+
   return (
     <div className="container mt-5">
       <h2>Comprar Coins</h2>
       <hr />
-      <div className="row">
+      <div className="row" id="containerCompras">
 
         {/*columna de resumen de las coins */}
         <div className="col-md-4 mb-4">
           <h4>Elige una Coin</h4>
           <div className="list-group">
+
+            {/*map para llamar cada elemento de la lista */}
             {coins.map((coin) => (
               <button
                 key={coin.id}
@@ -92,7 +101,7 @@ const ComprarCoin = () => {
                 <p className="text-muted">{selectedCoin.symbol.toUpperCase()}</p>
                 <p>Precio: €{selectedCoin.current_price.toLocaleString()}</p>
                 <p>Capitalización de mercado: €{selectedCoin.market_cap.toLocaleString()}</p>
-                <button className="btn btn-primary" onClick={handleBuyCoin}>
+                <button className="btn btn-primary" onClick={manejarCompra}>
                   Comprar ahora
                 </button>
               </div>

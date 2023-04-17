@@ -106,4 +106,9 @@
   padding: 50px;
   border-radius: 15px;
   background-color: #212529;
+}
+
+#containerCompras {
+  display: flex;
+  justify-content: space-between;
 }/*# sourceMappingURL=General.css.map */

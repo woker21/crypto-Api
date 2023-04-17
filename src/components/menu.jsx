@@ -14,6 +14,7 @@ const Menu = () => {
             <ul className="ul">
                 <li className="li"><NavLink to='/'>Home</NavLink></li>
                 <li className="li"><NavLink to='./compra'>ComprasCoins</NavLink></li>
+                <li className="li"><NavLink to='./convertir'>ConvertirCoins</NavLink></li>
             </ul>
         </nav>
         </>
