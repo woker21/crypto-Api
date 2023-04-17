@@ -1,11 +1,18 @@
 import { useState, useEffect } from "react";
 
+
+
+
+
+
 const ComprarCoin = () => {
+  
   const [coins, setCoins] = useState([]);
   const [selectedCoin, setSelectedCoin] = useState(null);
 
+
   useEffect(() => {
-    const fetchCoins = async () => {
+    const OBtenerCoin = async () => {
       try {
         const response = await fetch(
           "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false&price_change_percentage=24h"
@@ -16,10 +23,10 @@ const ComprarCoin = () => {
         console.error(error);
       }
     };
-    fetchCoins();
+    OBtenerCoin();
   }, []);
 
-  const handleSelectCoin = (coin) => {
+  const seleccionarCoin = (coin) => {
     setSelectedCoin(coin);
   };
 
@@ -34,25 +41,28 @@ const ComprarCoin = () => {
 
   return (
     <div className="container mt-5">
-      <h2>Comprar criptomoneda</h2>
+      <h2>Comprar Coins</h2>
       <hr />
       <div className="row">
+
+        {/*columna de resumen de las coins */}
         <div className="col-md-4 mb-4">
-          <h4>Elige una criptomoneda</h4>
+          <h4>Elige una Coin</h4>
           <div className="list-group">
             {coins.map((coin) => (
               <button
                 key={coin.id}
+                id="grupoLista"
                 className={`list-group-item list-group-item-action ${
                   selectedCoin?.id === coin.id ? "active" : ""
                 }`}
-                onClick={() => handleSelectCoin(coin)}
+                onClick={() => seleccionarCoin(coin)}
               >
                 <img
                   src={coin.image}
                   alt=""
                   className="img-fluid me-4"
-                  style={{ width: "3%" }}
+                  style={{ width: "6%" }}
                 />
                 <span>{coin.name}</span>
                 <span className="ms-3 text-muted">{coin.symbol.toUpperCase()}</span>
@@ -60,11 +70,15 @@ const ComprarCoin = () => {
             ))}
           </div>
         </div>
+
+
+
+        {/*columna de resumen de compras */}
         <div className="col-md-8">
           <h4>Resumen de la compra</h4>
           <hr />
           {selectedCoin ? (
-            <div className="row">
+            <div className="row" id="resumenCoin">
               <div className="col-md-4">
                 <img
                   src={selectedCoin.image}
@@ -84,7 +98,7 @@ const ComprarCoin = () => {
               </div>
             </div>
           ) : (
-            <p>Seleccione una criptomoneda para ver el resumen de la compra.</p>
+            <p>Seleccione una Coin para ver el resumen de la compra.</p>
           )}
         </div>
       </div>
